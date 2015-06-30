@@ -1,22 +1,17 @@
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
-         
+<head>
+</head>
+<body>
+		<div class="inner cover">
 
-         
-     
-
-         <link rel="stylesheet" type="text/css" href="C:\Users\Alejandro\Desktop\Ironhack\frontgame.css"/>
+	      <% @courses.each do |course| %>
+	        <h3><%= link_to course.name, course_path(course) %></h3>
+	        <div>Topic: <%= course.topic %></div>
         
-   </head>
-       
-   <body> 
-   <header>
-	   <h2>index courses</h2>
-       
-       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>  
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-   </body>
-</html> 
+      		<% end %>
+    	</div>
+
+</body>
+</html>

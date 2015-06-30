@@ -1,1 +1,16 @@
-<h1>show modulo</h1>
+
+
+<div class="inner cover">
+	<h2 class="cover-heading"><%= @course.name %></h2>
+	<div>Temática: <%= @course.topic %></div>
+	<div>Duration: <%= @course.duration %></div>
+</div>
+
+<p class="lead">
+	<div class="btn btn-lg btn-info"><%= link_to "Modulos", course_modulos_path(@course) %></div>
+</p>
+
+<p class="lead">
+	<div class="btn btn-lg btn-info"><%= link_to "Haz el test", course_tests_path(@course) %></div>
+</p>
+

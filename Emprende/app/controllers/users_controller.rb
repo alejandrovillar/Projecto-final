@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, notice: 'User was successfully created.'
+      redirect_to courses_path
     else
       render :new
     end

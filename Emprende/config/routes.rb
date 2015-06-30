@@ -12,13 +12,13 @@ Rails.application.routes.draw do
   root 'sessions#index'
 
 
-  resources :courses, only: [:index, :edit, :show]
-  get 'courses', to: 'courses#index'
-  get 'courses/:id/', to: 'courses#index'
-  get 'courses/:courses_id/modulos/:id', to: 'modulos#show'
-  get 'courses/:courses_id/:modulos_id/test/:id', to: 'test#edit'
-
+  resources :courses do
+    resources :modulos
+  end
   
+  resources :courses do
+    resources :tests
+  end
    
   
 end

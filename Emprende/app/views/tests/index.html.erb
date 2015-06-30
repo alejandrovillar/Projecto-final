@@ -1,0 +1,8 @@
+<h1>Curso: <%=@course.name %></h1>
+
+<ul>
+	<% @tests.each do |test| %>
+	Pregunta: <%=link_to test.question, course_test_path(@course, test)%>
+	
+	<%end%>
+</ul>

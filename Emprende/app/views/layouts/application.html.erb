@@ -1,29 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
   <title>Emprende</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application' => true %>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <%= stylesheet_link_tag "application", media: 'all'  %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  
 </head>
 <body>
 
-<div id="user_header">
-<% if current_user %>
-Logged in as <%= current_user.email %>.
-<%= link_to "Log Out", logout_path %>
-<% else %>
-<%= link_to "Sign Up", signup_path %> or
-<%= link_to "Log In", login_path %>
-<% end %>
-</div>
-<% flash.each do |key, value| %>
-<%= content_tag(:div, class: "alert alert-#{key}") do %>
-<p><%= value %></p>
-<% end %>
-<% end %>
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand">
+            <div id="user_header">
+              <% if current_user %>
+                Logged in as <%= current_user.email %>.
+                <%= link_to "Log Out", logout_path %>
+              <% else %>
+                <div class="btn btn-primary"><%= link_to "Únete", signup_path %></div> 
+                <div class="btn btn-primary"><%= link_to "Inicia sesión", login_path %></div>
+              <% end %>                  
+            </div>
+          </h3> 
+          <nav>
+          <h3>               
+          <div class="nav masthead-nav">
+        <% @courses.each_with_index do |course, index| %>
+            <%= link_to "Curso "+(index+1).to_s, course_path(course), class: "btn btn-primary" %>
+                  
+          <% end %>
+                      
+          </div>
+          </h3>
+          </nav>
 
-<%= yield %>
+
+        </div>
+      </div>             
+   
+         
+
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, class: "alert alert-#{key}") do %>
+          <p><%= value %></p>
+        <% end %>
+      <% end %>
+      <%= yield %>
+                
+      <div class="mastfoot">
+        <div class="inner">
+          <p>Project for <a href="http://ironhack.con">Ironhack</a>, by <a href="https://alejandroaldao.com">Alejandro Aldao</a>.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+    
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </body>
 </html>
+          
+
+			
+    
+	
+
+
+
+

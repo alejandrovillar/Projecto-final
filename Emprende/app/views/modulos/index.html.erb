@@ -1,0 +1,7 @@
+<h1>Curso: <%=@course.name %></h1>
+
+<ul>
+	<p><% @modulos.each do |modulo| %>
+	Módulo: <%=link_to modulo.name, course_modulo_path(@course, modulo)%> | Tema <%=modulo.topic%></p>
+	<%end%>
+</ul>

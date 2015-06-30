@@ -14,3 +14,16 @@
 //= require jquery_ujs
 
 //= require_tree .
+
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+
+$(document).ready(function(){
+    $("button").click(function(){
+        $(".incorrect").hide();             	
+    });
+});
+

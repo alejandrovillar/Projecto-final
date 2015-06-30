@@ -1,0 +1,26 @@
+
+
+<div class="inner cover">
+	<form name=form1 method=post>
+	<h4><label for="love"><id="question" name="question" checked="checked">Pregunta: <%= @test.question %></label></h4><br>
+	   
+		    <h4 class="incorrect"><label><input type="radio" id="answer" name="answer">  <%= @test.answer1 %></label></h4>
+
+		    <h4><label><input type="radio" id="answe2" name="answer"> <%= @test.answer2 %></label></h4>
+
+		    <h4 class="incorrect"><label><input type="radio" name="answer"> <%= @test.answer3 %></label></h4>
+		   
+	</form>
+
+		<div id="answer" class="col-md-4">
+			<div id="flip">Te doy una pista</div>
+			<div id="panel"><%= @test.help %></div>
+		</div>
+
+		<div class="col-md-4"></div>
+			<div id="answer" class="col-md-4">
+			<button id="flip">Verifica tu respuesta</button>
+		</div>
+
+</div>
+
